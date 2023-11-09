@@ -6,15 +6,14 @@
 //   ||             ||    Web: missstormy.neocities.org
 //   =================
 //   //_____________\\
-//  
+//
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-
 //Al ser StatefulWidget indica que su estado puede ir variando
 //durante el uso de la aplicación
-class WithTabBar extends StatefulWidget { 
+class WithTabBar extends StatefulWidget {
   //Const define el constructor, en este caso, sin parametros
   //key? key simplemente es un argumento opcional que sirve para identificar
   //otros widgets
@@ -53,8 +52,20 @@ class _WithTabBarState extends State<WithTabBar> {
     return Scaffold(
       // Barra de aplicación en la parte superior de la pantalla.
       appBar: AppBar(
-        title: const Text('MedGuardian'), // Título de la aplicación.
-        elevation: 0, // Elevación de la barra de aplicación (en este caso, sin sombra).
+        title: const Text('MedGuardian'),
+        centerTitle: true,
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.account_circle))
+        ],
+        backgroundColor: Colors.lightBlue,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(25),
+                bottomRight: Radius.circular(25))),
+
+        // Título de la aplicación.
+        elevation:
+            0, // Elevación de la barra de aplicación (en este caso, sin sombra).
       ),
       // Contenido principal de la aplicación, mostrando la página seleccionada.
       body: IndexedStack(
@@ -63,6 +74,7 @@ class _WithTabBarState extends State<WithTabBar> {
       ),
       // Barra de navegación en la parte inferior de la pantalla.
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.lightBlue,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.medication), // Icono para la primera página.
@@ -85,8 +97,10 @@ class _WithTabBarState extends State<WithTabBar> {
             label: 'Avisos', // Etiqueta para la quinta página.
           ),
         ],
-        currentIndex: _selectedIndex, // Índice de la página actualmente seleccionada.
-        onTap: _onItemTapped, // Función que se llama cuando se toca un ítem del BottomNavigationBar.
+        currentIndex:
+            _selectedIndex, // Índice de la página actualmente seleccionada.
+        onTap:
+            _onItemTapped, // Función que se llama cuando se toca un ítem del BottomNavigationBar.
       ),
     );
   }
@@ -110,10 +124,12 @@ class MedPage extends StatelessWidget {
               TabBar(
                 tabs: [
                   Tab(
-                    text: 'Crear medicación', // Etiqueta para la primera pestaña.
+                    text:
+                        'Crear medicación', // Etiqueta para la primera pestaña.
                   ),
                   Tab(
-                    text: 'Crear tratamiento', // Etiqueta para la segunda pestaña.
+                    text:
+                        'Crear tratamiento', // Etiqueta para la segunda pestaña.
                   ),
                 ],
               )
@@ -174,7 +190,8 @@ class _CrearMedState extends State<CrearMed>
   }
 
   @override
-  bool get wantKeepAlive => true; // Indica que el estado del widget debe mantenerse vivo.
+  bool get wantKeepAlive =>
+      true; // Indica que el estado del widget debe mantenerse vivo.
 }
 
 class CrearTrat extends StatelessWidget {
@@ -183,29 +200,32 @@ class CrearTrat extends StatelessWidget {
     return Icon(Icons.medication_liquid, size: 350);
   }
 }
-class MapPage extends StatelessWidget{
+
+class MapPage extends StatelessWidget {
   const MapPage();
   @override
   Widget build(BuildContext context) {
     return Icon(Icons.place, size: 350);
   }
-
 }
-class HomePage extends StatelessWidget{
+
+class HomePage extends StatelessWidget {
   const HomePage();
   @override
   Widget build(BuildContext context) {
     return Icon(Icons.home, size: 350);
   }
 }
-class ListPage extends StatelessWidget{
+
+class ListPage extends StatelessWidget {
   const ListPage();
   @override
   Widget build(BuildContext context) {
     return Icon(Icons.list, size: 350);
   }
 }
-class NotifPage extends StatelessWidget{
+
+class NotifPage extends StatelessWidget {
   const NotifPage();
   @override
   Widget build(BuildContext context) {
