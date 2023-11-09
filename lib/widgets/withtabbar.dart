@@ -70,38 +70,40 @@ class _WithTabBarState extends State<WithTabBar> {
       // Contenido principal de la aplicación, mostrando la página seleccionada.
       body: IndexedStack(
         children: _pages, // Lista de páginas que se pueden mostrar.
-        index: _selectedIndex, // Índice de la página actualmente seleccionada.
+        index: _selectedIndex,
+        // Índice de la página actualmente seleccionada.
       ),
       // Barra de navegación en la parte inferior de la pantalla.
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.lightBlue,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.medication), // Icono para la primera página.
-            label: 'Crear', // Etiqueta para la primera página.
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                icon: Icon(Icons.medication), // Icono para la primera página.
+                label: 'Crear',
+                backgroundColor:
+                    Colors.lightBlue // Etiqueta para la primera página.
+                ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.place), // Icono para la segunda página.
+              label: 'Mapa', // Etiqueta para la segunda página.
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home), // Icono para la tercera página.
+              label: 'Home', // Etiqueta para la tercera página.
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list), // Icono para la cuarta página.
+              label: 'Lista', // Etiqueta para la cuarta página.
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notifications), // Icono para la quinta página.
+              label: 'Avisos', // Etiqueta para la quinta página.
+            ),
+          ],
+          currentIndex:
+              _selectedIndex, // Índice de la página actualmente seleccionada.
+          onTap:
+              _onItemTapped // Función que se llama cuando se toca un ítem del BottomNavigationBar.
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.place), // Icono para la segunda página.
-            label: 'Mapa', // Etiqueta para la segunda página.
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home), // Icono para la tercera página.
-            label: 'Home', // Etiqueta para la tercera página.
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list), // Icono para la cuarta página.
-            label: 'Lista', // Etiqueta para la cuarta página.
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications), // Icono para la quinta página.
-            label: 'Avisos', // Etiqueta para la quinta página.
-          ),
-        ],
-        currentIndex:
-            _selectedIndex, // Índice de la página actualmente seleccionada.
-        onTap:
-            _onItemTapped, // Función que se llama cuando se toca un ítem del BottomNavigationBar.
-      ),
     );
   }
 }
