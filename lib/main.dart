@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:frankenguardian/widgets/bottomnavbar.dart';
 import 'package:frankenguardian/widgets/withtabbar.dart';
 
 void main() {

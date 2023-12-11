@@ -9,7 +9,6 @@
 //
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 //Al ser StatefulWidget indica que su estado puede ir variando
 //durante el uso de la aplicación
@@ -50,15 +49,18 @@ class _WithTabBarState extends State<WithTabBar> {
   Widget build(BuildContext context) {
     //Scaffold es el esqueleto principal de la app
     return Scaffold(
+      backgroundColor: Color.fromARGB(26, 255, 243, 243),
       // Barra de aplicación en la parte superior de la pantalla.
       appBar: AppBar(
+        
+        
         title: const Text('MedGuardian'),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.account_circle))
+          IconButton(onPressed: () {}, icon: const Icon(Icons.account_circle))
         ],
         backgroundColor: Colors.lightBlue,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(25),
                 bottomRight: Radius.circular(25))),
@@ -66,11 +68,15 @@ class _WithTabBarState extends State<WithTabBar> {
         // Título de la aplicación.
         elevation:
             0, // Elevación de la barra de aplicación (en este caso, sin sombra).
+        shadowColor: Colors.grey,
+        titleTextStyle: TextStyle(
+          fontSize: 30
+        ),
       ),
       // Contenido principal de la aplicación, mostrando la página seleccionada.
       body: IndexedStack(
-        children: _pages, // Lista de páginas que se pueden mostrar.
         index: _selectedIndex,
+        children: _pages,
         // Índice de la página actualmente seleccionada.
       ),
       // Barra de navegación en la parte inferior de la pantalla.
@@ -109,7 +115,7 @@ class _WithTabBarState extends State<WithTabBar> {
 }
 
 class MedPage extends StatelessWidget {
-  const MedPage(); // Constructor constante de la clase MedPage.
+  const MedPage({super.key}); // Constructor constante de la clase MedPage.
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +125,7 @@ class MedPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           // Barra de aplicación que contiene las pestañas.
-          flexibleSpace: Column(
+          flexibleSpace: const Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               // Columna que contiene el TabBar en la parte inferior de la AppBar.
@@ -138,7 +144,7 @@ class MedPage extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           // Contenido de las pestañas.
           children: [
             CrearMed(), // Widget para crear medicación, probablemente definido en otro lugar.
@@ -151,6 +157,8 @@ class MedPage extends StatelessWidget {
 }
 
 class CrearMed extends StatefulWidget {
+  const CrearMed({super.key});
+
   @override
   _CrearMedState createState() => _CrearMedState();
 }
@@ -170,7 +178,7 @@ class _CrearMedState extends State<CrearMed>
   @override
   Widget build(BuildContext context) {
     // Retorna un Scaffold, un widget de estructura básica para la pantalla.
-    return Scaffold(
+    return const Scaffold(
       // Contenido principal del Scaffold.
       body: Center(
         child: Column(
@@ -197,40 +205,42 @@ class _CrearMedState extends State<CrearMed>
 }
 
 class CrearTrat extends StatelessWidget {
+  const CrearTrat({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Icon(Icons.medication_liquid, size: 350);
+    return const Icon(Icons.medication_liquid, size: 350);
   }
 }
 
 class MapPage extends StatelessWidget {
-  const MapPage();
+  const MapPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return Icon(Icons.place, size: 350);
+    return const Icon(Icons.place, size: 350);
   }
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage();
+  const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
-    return Icon(Icons.home, size: 350);
+    return const Icon(Icons.home, size: 350);
   }
 }
 
 class ListPage extends StatelessWidget {
-  const ListPage();
+  const ListPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return Icon(Icons.list, size: 350);
+    return const Icon(Icons.list, size: 350);
   }
 }
 
 class NotifPage extends StatelessWidget {
-  const NotifPage();
+  const NotifPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return Icon(Icons.notifications, size: 350);
+    return const Icon(Icons.notifications, size: 350);
   }
 }
